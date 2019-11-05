@@ -10,7 +10,6 @@ class test_count_inversions(unittest.TestCase):
     # trivial TestCase
     def test1(self):
         (count, list) = self.ic.count_inversions([1])
-        self.assertEqual(1, 0)
         self.assertEqual(count, 0)
         self.assertEqual(list, [1])
 
@@ -37,6 +36,12 @@ class test_count_inversions(unittest.TestCase):
         (count, list) = self.ic.count_inversions([1, 2, 3, 4, 5])
         self.assertEqual(count, 0)
         self.assertEqual(list, [1, 2, 3, 4, 5])
+
+    # assert that duplicate values raise an error
+    def test6(self):
+        self.assertRaises(ValueError, self.ic.count_inversions, \
+                            [1, 4, 1, 2, 3])
+
 
 if __name__ == '__main__':
     unittest.main()
